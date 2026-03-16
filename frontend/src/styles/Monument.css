@@ -1,0 +1,29 @@
+.container{
+
+padding:40px;
+
+}
+
+.stats{
+
+background:#f0f0f0;
+
+padding:20px;
+
+border-radius:10px;
+
+width:300px;
+
+}
+
+.decay-bar {
+  width: 300px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.decay-fill {
+  height: 20px;
+  background: red;
+}
