@@ -20,7 +20,7 @@ const imageMap: { [key: string]: string } = {
   "Statue of Liberty": Statue,
   "Bagerhat Mosques": ma,
   "Machu Picchu": machu,
-  "Moai Statues": moha
+  "Mohenjo-Daro": moha
 };
 
 export default function Home() {
