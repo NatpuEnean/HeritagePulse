@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -15,7 +17,7 @@
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
+font: italic bold 16px/1.5 "Inter", sans-serif;
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);

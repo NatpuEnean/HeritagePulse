@@ -72,5 +72,6 @@ def monument_details(name: str):
         "risk": risk,
         "future_health": health_future,
         "main_cause": cause,
-        "solution": solution
+        "solution": solution,
+        "decay": decay
     }
