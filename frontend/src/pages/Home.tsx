@@ -7,7 +7,7 @@ import tanjore from "../assets/images/tanjore.jpeg";
 import taj from "../assets/images/tajmahal.jpeg";
 import hampi from "../assets/images/hampi.jpeg";
 import jaisalmer from "../assets/images/jaisalmar.jpeg";
-import Statue from "../assets/images/Statue.jpeg";
+import Statue from "../assets/images/statue.jpeg";
 import machu from "../assets/images/machu.jpeg";
 import moha from "../assets/images/moha.jpeg";
 import ma from "../assets/images/ma.jpeg";
