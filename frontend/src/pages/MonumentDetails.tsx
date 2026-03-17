@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import API from "../services/api";
 import "../styles/Monument.css";
 import DecayChart from "../components/DecaycChart";
+import { monumentInfo } from "../data/monumentinfo";
 
 export default function MonumentDetails() {
   const { name } = useParams();
@@ -16,15 +17,32 @@ export default function MonumentDetails() {
 
   if (!data) return <div className="loading">Loading monument data...</div>;
 
+  const info =
+    monumentInfo[data.monument.name] || {
+      image: "",
+      description: "A historically significant monument of India."
+    };
+
   return (
     <div className="monument-container">
-      <header className="monument-header">
-        <h1>{data.monument.name}</h1>
-        <p className="location-tag">{data.monument.city}</p>
-      </header>
 
+      {/* 🏛️ HERO SECTION */}
+      <section className="hero-section">
+        <img src={info.image} alt={data.monument.name} className="hero-image" />
+
+        <div className="hero-overlay">
+          <div className="hero-content">
+            <h1>{data.monument.name}</h1>
+            <p className="hero-city">{data.monument.city}</p>
+            <p className="hero-desc">{info.description}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* DASHBOARD GRID */}
       <div className="dashboard-grid">
-        {/* Chart Section */}
+
+        {/* Chart */}
         <section className="chart-card">
           <h3>Environmental Impact Analysis</h3>
           <DecayChart
@@ -34,7 +52,7 @@ export default function MonumentDetails() {
           />
         </section>
 
-        {/* Status Section */}
+        {/* Status */}
         <section className="stats-card">
           <div className="risk-badge" data-risk={data.risk.toLowerCase()}>
             {data.risk} RISK
@@ -65,11 +83,19 @@ export default function MonumentDetails() {
               <strong>{data.pollution.pm25}</strong>
             </div>
           </div>
- <p><strong>Predicted Health of Monument in the next year:</strong> {data.future_health}%</p>
+
+          <p>
+            <strong>Predicted Health of Monument in the next year:</strong>{" "}
+            {data.future_health}%
+          </p>
+
           <hr />
 
           <div className="insights">
-            <p><strong>Main Cause:</strong> {data.main_cause}</p>
+            <p>
+              <strong>Main Cause:</strong> {data.main_cause}
+            </p>
+
             <p className="solution-text">
               <strong>Recommendation:</strong> {data.solution}
             </p>
