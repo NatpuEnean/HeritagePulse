@@ -7,12 +7,20 @@ import tanjore from "../assets/images/tanjore.jpeg";
 import taj from "../assets/images/tajmahal.jpeg";
 import hampi from "../assets/images/hampi.jpeg";
 import jaisalmer from "../assets/images/jaisalmar.jpeg"; 
+import Statue from "../assets/images/Statue.jpeg"; 
+import machu from "../assets/images/machu.jpeg"; 
+import moha from "../assets/images/moha.jpeg"; 
+import ma from "../assets/images/ma.jpeg"; 
 
 const imageMap: { [key: string]: string } = {
   "Brihadeeswarar Temple": tanjore,
   "Taj Mahal": taj,
   "Hampi Stone Chariot": hampi,
-  "Jaisalmer Fort": jaisalmer
+  "Jaisalmer Fort": jaisalmer,
+  "Statue of Liberty": Statue,
+  "Bagerhat Mosques":ma,
+  "Machu Picchu": machu,
+  "Moai Statues": moha
 };
 
 export default function Home() {

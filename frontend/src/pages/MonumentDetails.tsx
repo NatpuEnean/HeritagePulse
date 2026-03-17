@@ -65,7 +65,7 @@ export default function MonumentDetails() {
               <strong>{data.pollution.pm25}</strong>
             </div>
           </div>
- <p><strong>Predicted Health of Monument:</strong> {data.health_future}</p>
+ <p><strong>Predicted Health of Monument in the next year:</strong> {data.future_health}%</p>
           <hr />
 
           <div className="insights">
