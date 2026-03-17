@@ -7,6 +7,8 @@ def get_weather(lat, lon):
 
     r = requests.get(url).json()
 
+    print("Weather API response:", r)
+
 
     return {
         "temperature": r["main"]["temp"],

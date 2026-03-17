@@ -7,7 +7,12 @@ from decay_model import decay_velocity
 from ml_models import predict_risk, predict_health
 from decay_model import decay_velocity, find_decay_cause, get_solution
 
+
+
+
 app = FastAPI()
+
+
 
 origins = [
     "http://localhost:5173",

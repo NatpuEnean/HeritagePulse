@@ -1,9 +1,93 @@
-.grid{
+.light {
+  background: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+  transition: all 0.4s ease;
+}
 
-display:flex;
+.dark {
+  background: #000000;   /* pure black */
+  color: #ffffff;
+  min-height: 100vh;
+  transition: all 0.4s ease;
+}
+/* Grid */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-flex-wrap:wrap;
+/* Toggle container */
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
 
-justify-content:center;
+/* Toggle base */
+.toggle {
+  width: 70px;
+  height: 35px;
+  background: linear-gradient(to right, #fbc531, #f5cd79);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.4s ease;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
 
+/* Dark mode toggle background */
+.toggle.dark-toggle {
+  background: linear-gradient(to right, #2c3e50, #4ca1af);
+}
+
+/* Thumb */
+.toggle-thumb {
+  width: 25px;
+  height: 25px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Move thumb */
+.toggle.dark-toggle .toggle-thumb {
+  transform: translateX(35px);
+}
+
+/* Icon */
+.icon {
+  font-size: 14px;
+  transition: transform 0.4s ease;
+}
+
+/* Rotate animation */
+.toggle.dark-toggle .icon {
+  transform: rotate(360deg);
+}
+
+/* Press effect */
+.toggle:active .toggle-thumb {
+  transform: scale(0.9);
+}
+
+/* HEADER layout */
+.header {
+  display: flex;
+  justify-content: space-between; /* pushes toggle right */
+  align-items: center;
+  padding: 20px 40px;
+}
+
+/* Optional: make title nicer */
+.header h1 {
+  margin: 0;
+  font-size: 28px;
 }

@@ -1,37 +1,70 @@
-import {useEffect,useState} from "react"
-import API from "../services/api"
-import MonumentCard from "../components/MonumentCard"
-import "../styles/Home.css"
+import { useEffect, useState } from "react";
+import API from "../services/api";
+import MonumentCard from "../components/MonumentCard";
+import "../styles/Home.css";
 
-export default function Home(){
+import tanjore from "../assets/images/tanjore.jpeg";
+import taj from "../assets/images/tajmahal.jpeg";
+import hampi from "../assets/images/hampi.jpeg";
+import jaisalmer from "../assets/images/jaisalmar.jpeg"; 
 
-const [monuments,setMonuments]=useState<any[]>([])
+const imageMap: { [key: string]: string } = {
+  "Brihadeeswarar Temple": tanjore,
+  "Taj Mahal": taj,
+  "Hampi Stone Chariot": hampi,
+  "Jaisalmer Fort": jaisalmer
+};
 
-useEffect(()=>{
+export default function Home() {
+  const [monuments, setMonuments] = useState<any[]>([]);
+  const [darkMode, setDarkMode] = useState(false);
 
-API.get("/monuments").then(res=>{
+  // Fetch monuments
+  useEffect(() => {
+    API.get("/monuments").then(res => {
+      setMonuments(res.data);
+    });
+  }, []);
 
-setMonuments(res.data)
+  // Load saved theme
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") setDarkMode(true);
+  }, []);
 
-})
+  // Save theme
+  useEffect(() => {
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
 
-},[])
+  return (
+    <div className={darkMode ? "dark" : "light"}>
+      
+      {/* 🔥 HEADER (Title left, Toggle right) */}
+      <div className="header">
+        <h1>HeritagePulse AI</h1>
 
-return(
+        <div
+          className={`toggle ${darkMode ? "dark-toggle" : ""}`}
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          <div className="toggle-thumb">
+            {darkMode ? "🌙" : "☀️"}
+          </div>
+        </div>
+      </div>
 
-<div>
-
-<h1>HeritagePulse AI</h1>
-
-<div className="grid">
-
-{monuments.map((m,i)=>(
-<MonumentCard key={i} name={m.name} city={m.city}/>
-))}
-
-</div>
-
-</div>
-
-)
+      {/* GRID */}
+      <div className="grid">
+        {monuments.map((m, i) => (
+          <MonumentCard
+            key={i}
+            name={m.name}
+            city={m.city}
+            image={imageMap[m.name] || taj}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }

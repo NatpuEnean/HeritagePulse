@@ -1,21 +1,24 @@
-import "../styles/Card.css"
+import { Link } from "react-router-dom";
+import "../styles/Card.css";
 
-interface Props{
- name:string
- city:string
+interface Props {
+  name: string;
+  city: string;
+  image: string;
 }
 
-export default function MonumentCard({name,city}:Props){
+export default function MonumentCard({ name, city, image }: Props) {
+  return (
+    <div className="card">
+      <img src={image} alt={name} className="card-img" />
 
-return(
-<div className="card">
+      <h2>{name}</h2>
+      <p>{city}</p>
 
-<h2>{name}</h2>
-
-<p>{city}</p>
-
-<a href={`/monument/${name}`}>View Details</a>
-
-</div>
-)
+      {/* ✅ FIXED */}
+      <Link to={`/monument/${encodeURIComponent(name)}`} className="view-btn">
+        View Details
+      </Link>
+    </div>
+  );
 }
